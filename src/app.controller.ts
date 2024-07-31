@@ -22,6 +22,7 @@ const csrf = `
     <form style="display: flex; flex-direction: column; gap: 8px;" action="http://localhost:3000/transfer" method="POST" >
       <input name="username" placeholder="Username" value="john" />
       <input name="amount" type="number" placeholder="Amount" value="10" />
+      <input name="csrf_token" type="hidden" value="17223837526850.974339637141155" />
       <button>Transfer</button>
     </form>
     <script>
@@ -34,6 +35,11 @@ const csrf = `
 @Controller()
 export class AppController {
   constructor() {}
+
+  @Get()
+  home() {
+    return 'I am a bad website';
+  }
 
   @Get('/phishing')
   phishing() {
